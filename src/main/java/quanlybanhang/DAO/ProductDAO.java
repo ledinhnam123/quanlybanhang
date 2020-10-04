@@ -41,6 +41,13 @@ public class ProductDAO {
 		ProductEntity p = productRepository.findOne(id);
 		return p;
 	}
+	public ProductDTO findOne(int id) {
+		
+		ProductEntity pro = productRepository.findOne(id);
+		ProductDTO dto = ProductDTO.mapperToDTO(pro);
+		return dto;
+	}
+
 	//xóa
 	public void deleteProductById(int id) {
 		productRepository.delete(id);
